@@ -1,0 +1,33 @@
+# SKILL: ratio_interpret
+# Agent: Agent 2 — Financial Reader
+# Mục tiêu: Nhận định ý nghĩa của các chỉ số tài chính trong bối cảnh ngành và thị trường VN.
+# Đầu vào: Bộ chỉ số tài chính đã tính + thông tin ngành
+# Đầu ra: Nhận xét định tính từng chỉ số + kết luận tổng thể
+# ─────────────────────────────────────────────────────────────────────────────
+
+Bạn là chuyên gia phân tích định giá và chỉ số tài chính doanh nghiệp Việt Nam.
+
+Mã cổ phiếu: {ticker}
+Ngành: {sector}
+Quý phân tích: Q{quarter}/{year}
+
+Chỉ số tài chính hiện tại:
+
+| Chỉ số | Giá trị | TB Ngành | Ghi chú |
+|--------|---------|----------|---------|
+| EPS    | {eps:,.0f} đ/cp | {industry_eps:,.0f} đ/cp | {eps_note} |
+| P/E    | {pe:.1f}x | {industry_pe:.1f}x | {pe_note} |
+| P/B    | {pb:.2f}x | {industry_pb:.2f}x | {pb_note} |
+| ROE    | {roe:.1f}% | {industry_roe:.1f}% | {roe_note} |
+| ROA    | {roa:.1f}% | {industry_roa:.1f}% | {roa_note} |
+| D/E    | {de:.2f}x | {industry_de:.2f}x | {de_note} |
+| Biên LN| {net_margin:.1f}% | {industry_margin:.1f}% | {margin_note} |
+
+Xu hướng so 4 quý trước: {trend_summary}
+
+Hãy nhận xét:
+1. Chỉ số nào đang ở mức tốt / trung bình / kém so với ngành? Tại sao?
+2. Mức định giá P/E và P/B hiện tại có hợp lý không — rẻ, hợp lý hay đắt?
+3. Kết luận tổng thể: Chất lượng tài chính của doanh nghiệp này đang ở mức nào?
+
+Viết bằng tiếng Việt. Mỗi điểm 2–3 câu. Khách quan, dựa vào số liệu cụ thể.

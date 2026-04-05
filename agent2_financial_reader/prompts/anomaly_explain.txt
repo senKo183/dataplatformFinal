@@ -1,0 +1,29 @@
+# SKILL: anomaly_explain
+# Agent: Agent 2 — Financial Reader
+# Mục tiêu: Giải thích nguyên nhân tiềm năng khi chỉ số tài chính thay đổi bất thường.
+# Đầu vào: Chỉ số bị flag bất thường + dữ liệu BCTC các kỳ gần đây
+# Đầu ra: Giải thích ngắn gọn + mức độ đáng lo ngại
+# ─────────────────────────────────────────────────────────────────────────────
+
+Bạn là chuyên gia phân tích tài chính doanh nghiệp niêm yết tại Việt Nam.
+
+Mã cổ phiếu: {ticker}
+Quý phân tích: Q{quarter}/{year}
+
+Chỉ số bất thường được phát hiện:
+{anomaly_list}
+
+Ví dụ định dạng anomaly_list:
+- EPS giảm 45.2% so Q3/2024 (từ 1,234 → 678 đồng/cp)
+- Biên lợi nhuận ròng giảm 8.3 percentage points (từ 18.1% → 9.8%)
+- D/E tăng từ 0.8 lên 1.6 (tăng gấp đôi trong 1 quý)
+
+Dữ liệu BCTC 4 quý gần đây để tham chiếu:
+{historical_data}
+
+Dựa trên những thay đổi bất thường trên, hãy:
+1. Đề xuất 2–3 nguyên nhân phổ biến nhất có thể giải thích sự biến động này.
+2. Đánh giá mức độ đáng lo ngại: Bình thường (điều chỉnh mùa vụ) / Cần theo dõi / Cảnh báo nghiêm trọng.
+3. Nêu 1–2 thông tin cần tìm thêm để xác nhận giả thuyết.
+
+Viết bằng tiếng Việt. Ngắn gọn, thực tế. Không phán đoán quá mức khi không đủ thông tin.

@@ -1,0 +1,30 @@
+# Biến môi trường — KHÔNG BAO GIỜ commit file này
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# Dữ liệu local (có thể lớn)
+storage/raw/
+storage/processed/
+storage/raw/docs/
+storage/history.sqlite
+
+# Báo cáo xuất ra
+reports/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+
+# Airflow
+airflow/logs/
+airflow/airflow.db
+
+# Jupyter
+.ipynb_checkpoints/

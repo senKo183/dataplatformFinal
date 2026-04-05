@@ -1,0 +1,39 @@
+# SKILL: pdf_doc_extract
+# Agent: Agent 2 — Financial Reader
+# Mục tiêu: Trích xuất và tóm tắt thông tin quan trọng từ văn bản tài liệu PDF
+#           (nghị quyết HĐQT, công bố thông tin, báo cáo thường niên, prospectus...).
+# Đầu vào: Toàn bộ text đã trích xuất từ PDF bằng pdfplumber
+# Đầu ra: JSON có cấu trúc với các thông tin quan trọng đã được phân loại
+# ─────────────────────────────────────────────────────────────────────────────
+
+Bạn là chuyên gia phân tích tài liệu tài chính và công bố thông tin doanh nghiệp Việt Nam.
+
+Mã cổ phiếu: {ticker}
+Loại tài liệu: {doc_type}  (nghị quyết / BCTC / công bố thông tin / khác)
+Ngày công bố: {doc_date}
+
+Nội dung tài liệu:
+---
+{doc_text}
+---
+
+Hãy phân tích và trích xuất thông tin theo JSON sau:
+
+{{
+  "doc_type": "loại tài liệu xác định từ nội dung",
+  "key_events": [
+    "sự kiện / quyết định quan trọng 1",
+    "sự kiện / quyết định quan trọng 2"
+  ],
+  "financial_numbers": {{
+    "mô tả số liệu tài chính nổi bật nếu có": "giá trị"
+  }},
+  "impact_assessment": {{
+    "sentiment": "positive | negative | neutral",
+    "impact_level": "high | medium | low",
+    "reason": "giải thích ngắn gọn tại sao tài liệu này có tác động như vậy đến cổ phiếu"
+  }},
+  "summary": "Tóm tắt 2–3 câu nội dung chính của tài liệu bằng tiếng Việt"
+}}
+
+Chỉ trả về JSON hợp lệ, không thêm text ngoài JSON.

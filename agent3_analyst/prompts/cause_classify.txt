@@ -1,0 +1,53 @@
+# SKILL: cause_classify
+# Agent: Agent 3 — Analyst
+# Mục tiêu: Tổng hợp kết quả từ tất cả góc phân tích → xác định nguyên nhân chính của biến động.
+# Đây là prompt CUỐI trong chuỗi phân tích Agent 3 — nhận input từ 3 prompt trước đó.
+# Đầu vào: Kết quả technical_interpret + news_sentiment + dividend_impact + dữ liệu thị trường
+# Đầu ra: JSON phân loại nguyên nhân + mô tả tự nhiên cho báo cáo
+# ─────────────────────────────────────────────────────────────────────────────
+
+Bạn là chuyên gia phân tích nguyên nhân biến động cổ phiếu với kinh nghiệm phân tích thị trường Việt Nam.
+
+Mã cổ phiếu: {ticker}
+Ngày: {date}
+Giá đóng cửa: {close:,.0f} VND
+Biến động: {price_change:+.1f}%
+Khối lượng: {volume_ratio:.1f}x TB20
+
+BỐI CẢNH THỊ TRƯỜNG CHUNG:
+- VN-Index: {index_change:+.1f}%  |  HNX-Index: {hnx_change:+.1f}%
+- Thanh khoản HOSE: {market_liquidity:,.0f} tỷ VND
+- Tâm lý thị trường: {market_sentiment}
+
+KẾT QUẢ PHÂN TÍCH TỪNG GÓC ĐỘ:
+
+[KỸ THUẬT]
+{technical_result}
+
+[TIN TỨC]
+{news_result}
+
+[CỔ TỨC / QUYỀN]
+{dividend_result}
+
+Dựa trên tổng hợp trên, hãy xác định nguyên nhân biến động hôm nay:
+
+NGUYÊN NHÂN có thể chọn (chọn 1 nguyên nhân chính):
+- KY_THUAT: Biến động do yếu tố kỹ thuật (RSI cực trị, MA cross, điều chỉnh sau chuỗi tăng/giảm)
+- TIN_TUC: Biến động do tin tức cụ thể (tích cực hoặc tiêu cực)
+- CO_TUC: Biến động chủ yếu do điều chỉnh cổ tức / quyền mua
+- THI_TRUONG: Biến động theo thị trường chung (không có yếu tố riêng)
+- HON_HOP: Nhiều yếu tố đồng thời, khó tách biệt
+- KHONG_XAC_DINH: Không đủ thông tin để kết luận
+
+Trả về JSON:
+{{
+  "ticker": "{ticker}",
+  "date": "{date}",
+  "price_change": {price_change},
+  "cause": "KY_THUAT | TIN_TUC | CO_TUC | THI_TRUONG | HON_HOP | KHONG_XAC_DINH",
+  "cause_label": "tên nguyên nhân bằng tiếng Việt",
+  "confidence": "Cao | Trung bình | Thấp",
+  "supporting_factors": ["yếu tố hỗ trợ 1", "yếu tố hỗ trợ 2"],
+  "summary": "Mô tả 2–3 câu nguyên nhân biến động bằng tiếng Việt, dùng cho báo cáo cuối ngày. Không bắt đầu bằng tên mã."
+}}

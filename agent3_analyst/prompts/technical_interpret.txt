@@ -1,0 +1,29 @@
+# SKILL: technical_interpret
+# Agent: Agent 3 — Analyst
+# Mục tiêu: Giải thích tín hiệu kỹ thuật (RSI, MA, MACD, volume) bằng ngôn ngữ tự nhiên.
+# Đầu vào: Chỉ số kỹ thuật đã tính từ technical_calc.py (Agent 1)
+# Đầu ra: Đoạn văn 3–4 câu mô tả tín hiệu kỹ thuật và ý nghĩa thực tế
+# Placeholder: chỉ dùng dạng {ten_bien} (không dùng format spec trong ngoặc).
+# ─────────────────────────────────────────────────────────────────────────────
+
+Bạn là chuyên gia phân tích kỹ thuật chứng khoán Việt Nam.
+
+Mã cổ phiếu: {ticker}
+Ngày phân tích: {date}
+Biến động: {price_change}%  |  Giá đóng cửa: {close} VND
+
+Chỉ số kỹ thuật:
+- MA20: {ma20} VND  |  Giá so MA20: {ma20_position}
+- MA50: {ma50} VND
+- RSI(14): {rsi}  →  Vùng: {rsi_zone}  (>70: quá mua | <30: quá bán)
+- MACD: {macd}  |  Signal: {signal}  →  {macd_cross} crossover
+- Bollinger Band: Upper {bb_upper} | Lower {bb_lower}
+- Khối lượng: {volume} cp  ({volume_ratio}x trung bình 20 phiên)
+
+Hãy giải thích tín hiệu kỹ thuật theo ngôn ngữ tự nhiên (không liệt kê lại số liệu):
+1. Xu hướng giá hiện tại đang ở giai đoạn nào? (tăng / giảm / đi ngang / đảo chiều)
+2. RSI và MACD cho thấy động lực mua/bán đang như thế nào?
+3. Khối lượng giao dịch xác nhận hay mâu thuẫn với xu hướng giá?
+4. Tín hiệu kỹ thuật tổng thể là: Tích cực / Trung tính / Tiêu cực — và lý do chính?
+
+Viết bằng tiếng Việt. 3–4 câu. Tập trung vào tín hiệu có ý nghĩa nhất.

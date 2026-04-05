@@ -1,0 +1,31 @@
+# API key được đọc từ biến môi trường CLAUDE_API_KEY (file .env)
+# KHÔNG điền key trực tiếp vào đây
+claude_api_key: ""
+claude_model: "claude-sonnet-4-20250514"
+claude_max_tokens: 1024
+
+market:
+  exchanges: ["HOSE", "HNX", "UPCOM"]
+  session_close: "15:00"
+  timezone: "Asia/Ho_Chi_Minh"
+
+thresholds:
+  price_change_alert: 5.0        # % biến động để tạo alert HIGH
+  price_change_medium: 3.0       # % biến động để tạo alert MEDIUM
+  volume_spike_high: 5.0         # khối lượng gấp X lần TB20 → HIGH
+  volume_spike_medium: 2.0       # khối lượng gấp X lần TB20 → MEDIUM
+  rsi_overbought: 70
+  rsi_oversold: 30
+  bctc_anomaly_threshold: 20     # % thay đổi chỉ số tài chính để flag
+
+storage:
+  raw_data_path: "storage/raw/"
+  docs_path: "storage/raw/docs/"
+  processed_path: "storage/processed/"
+  db_path: "storage/history.sqlite"
+  report_path: "reports/"
+
+dashboard:
+  base_url: "http://localhost:8501"
+  reports_path: "reports/"
+  alerts_path: "storage/"

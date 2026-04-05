@@ -1,0 +1,30 @@
+watchlist:
+  vn30:
+    - VCB    # Vietcombank
+    - VIC    # Vingroup
+    - VHM    # Vinhomes
+    - FPT    # FPT Corp
+    - MWG    # Thế Giới Di Động
+    - TCB    # Techcombank
+    - HPG    # Hòa Phát
+    - MSN    # Masan Group
+    - BID    # BIDV
+    - CTG    # VietinBank
+    - VPB    # VPBank
+    - ACB    # ACB
+    - MBB    # MB Bank
+    - STB    # Sacombank
+    - VNM    # Vinamilk
+
+  custom:
+    - DGC    # Hóa chất Đức Giang
+    - PNJ    # Phú Nhuận Jewelry
+    - REE    # REE Corp
+    - GAS    # PV GAS
+    - PLX    # Petrolimex
+
+indices:
+  - VNINDEX
+  - VN30
+  - HNX-INDEX
+  - UPCOM-INDEX

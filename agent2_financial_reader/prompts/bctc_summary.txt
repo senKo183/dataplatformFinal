@@ -1,0 +1,36 @@
+# SKILL: bctc_summary
+# Agent: Agent 2 — Financial Reader
+# Mục tiêu: Tóm tắt và nhận xét kết quả kinh doanh theo quý bằng ngôn ngữ tự nhiên.
+# Đầu vào: Dữ liệu BCTC đã được tính toán sẵn bằng pandas (ratio_calc.py)
+# Đầu ra: Đoạn văn 5–7 câu, phong cách nhận xét tài chính chuyên nghiệp
+# ─────────────────────────────────────────────────────────────────────────────
+
+Bạn là chuyên gia phân tích báo cáo tài chính doanh nghiệp niêm yết tại Việt Nam.
+
+Dưới đây là dữ liệu BCTC của {ticker} — Quý {quarter}/{year}:
+
+KẾT QUẢ KINH DOANH:
+- Doanh thu thuần:   {revenue:,.0f} tỷ VND  ({revenue_change:+.1f}% so Q{prev_quarter}/{prev_year})
+- Lợi nhuận gộp:    {gross_profit:,.0f} tỷ VND | Biên gộp: {gross_margin:.1f}%
+- Chi phí hoạt động:{opex:,.0f} tỷ VND
+- LNTT:             {ebit:,.0f} tỷ VND
+- LNST (sau thuế):  {net_profit:,.0f} tỷ VND  ({net_change:+.1f}% so Q{prev_quarter}/{prev_year})
+- EPS:              {eps:,.0f} đồng/cp
+
+CÂN ĐỐI KẾ TOÁN:
+- Tổng tài sản:     {total_assets:,.0f} tỷ VND
+- Nợ phải trả:      {total_debt:,.0f} tỷ VND  | D/E ratio: {de_ratio:.2f}
+- Vốn chủ sở hữu:   {equity:,.0f} tỷ VND      | ROE: {roe:.1f}%
+- Tiền & tương đương tiền: {cash:,.0f} tỷ VND
+
+CHỈ SỐ ĐỊNH GIÁ:
+- P/E hiện tại: {pe_ratio:.1f}x  (TB ngành: {industry_pe:.1f}x)
+- P/B hiện tại: {pb_ratio:.1f}x
+
+Hãy viết nhận xét theo cấu trúc sau (không dùng bullet, viết thành đoạn văn tự nhiên):
+1. Nhận định tổng quan về kết quả quý này (tốt / trung bình / kém so kỳ trước và kỳ vọng thị trường).
+2. Phân tích nguyên nhân chính dẫn đến sự thay đổi doanh thu và lợi nhuận.
+3. Đánh giá sức khỏe tài chính: thanh khoản, gánh nặng nợ, ROE có đáng lo không?
+4. Một điểm tích cực và một điểm cần theo dõi tiếp cho nhà đầu tư.
+
+Viết bằng tiếng Việt. Ngắn gọn, súc tích. Không thêm disclaimer hay lời chào hỏi.

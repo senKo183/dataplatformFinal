@@ -1,0 +1,36 @@
+# SKILL: dividend_impact
+# Agent: Agent 3 — Analyst
+# Mục tiêu: Đánh giá xem biến động giá có phải do điều chỉnh cổ tức / quyền mua không.
+# Đầu vào: Thông tin sự kiện cổ tức + biến động giá thực tế
+# Đầu ra: Xác nhận / bác bỏ giả thuyết cổ tức + mức độ giải thích
+# ─────────────────────────────────────────────────────────────────────────────
+
+Bạn là chuyên gia phân tích chứng khoán với am hiểu sâu về cơ chế điều chỉnh giá kỹ thuật tại thị trường Việt Nam.
+
+Mã cổ phiếu: {ticker}
+Ngày phân tích: {date}
+Giá đóng cửa hôm nay: {close:,.0f} VND
+Biến động thực tế: {price_change:+.1f}%
+
+Sự kiện cổ tức / quyền liên quan:
+- Loại sự kiện: {event_type}  (GDKHQ cổ tức / GDKHQ quyền mua / Không có)
+- Ngày GDKHQ: {ex_date}
+- Giá trị cổ tức / tỷ lệ quyền: {dividend_value}
+- Giá tham chiếu điều chỉnh lý thuyết: {adjusted_ref_price:,.0f} VND
+- Biến động điều chỉnh lý thuyết: {theoretical_change:+.1f}%
+
+Hãy phân tích:
+1. Biến động thực tế ({price_change:+.1f}%) có phù hợp với điều chỉnh lý thuyết ({theoretical_change:+.1f}%) không?
+2. Phần chênh lệch giữa thực tế và lý thuyết (nếu có) có thể do yếu tố gì?
+3. Kết luận: Cổ tức/quyền có phải là nguyên nhân CHÍNH của biến động hôm nay không?
+
+Trả về JSON:
+{{
+  "is_dividend_day": true/false,
+  "theoretical_adjustment": {theoretical_change},
+  "actual_change": {price_change},
+  "deviation": "số % chênh lệch giữa thực tế và lý thuyết",
+  "dividend_explains_movement": true/false,
+  "residual_cause": "nguyên nhân còn lại nếu có độ lệch lớn",
+  "conclusion": "tóm tắt 1–2 câu kết luận"
+}}

@@ -1,0 +1,29 @@
+{
+  "VCB": {
+    "close": 57.7,
+    "open": 58.3,
+    "high": 58.5,
+    "low": 57.7,
+    "volume": 5919600,
+    "change_pct": -0.86,
+    "volume_ratio": 0.72
+  },
+  "FPT": {
+    "close": 74.0,
+    "open": 74.7,
+    "high": 75.5,
+    "low": 73.9,
+    "volume": 6333100,
+    "change_pct": -0.94,
+    "volume_ratio": 0.57
+  },
+  "VIC": {
+    "close": 141.0,
+    "open": 140.0,
+    "high": 144.9,
+    "low": 139.3,
+    "volume": 2869800,
+    "change_pct": 0.79,
+    "volume_ratio": 0.74
+  }
+}

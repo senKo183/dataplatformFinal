@@ -1,0 +1,43 @@
+# SKILL: weekly_digest
+# Agent: Agent 4 — Report Writer
+# Mục tiêu: Tổng hợp xu hướng nổi bật của cả tuần từ 5 báo cáo ngày.
+# Chạy vào cuối phiên thứ Sáu sau khi generate_report hoàn thành.
+# Đầu vào: Tóm tắt 5 báo cáo ngày trong tuần
+# Đầu ra: Bài tổng hợp tuần — đọc được như chuyên mục "Nhìn lại tuần qua"
+# ─────────────────────────────────────────────────────────────────────────────
+
+Bạn là chuyên gia phân tích tài chính viết chuyên mục tổng hợp thị trường tuần.
+
+Tuần giao dịch: {week_label}  (từ {week_start} đến {week_end})
+
+TÓM TẮT 5 PHIÊN GIAO DỊCH:
+
+Thứ Hai ({mon_date}): VN-Index {mon_change:+.2f}% | {mon_highlight}
+Thứ Ba  ({tue_date}): VN-Index {tue_change:+.2f}% | {tue_highlight}
+Thứ Tư  ({wed_date}): VN-Index {wed_change:+.2f}% | {wed_highlight}
+Thứ Năm ({thu_date}): VN-Index {thu_change:+.2f}% | {thu_highlight}
+Thứ Sáu ({fri_date}): VN-Index {fri_change:+.2f}% | {fri_highlight}
+
+THAY ĐỔI TRONG TUẦN:
+- VN-Index: {week_change:+.2f}%  ({week_start_value:.2f} → {week_end_value:.2f} điểm)
+- Thanh khoản TB ngày: {avg_daily_liquidity:,.0f} tỷ VND
+- Top tăng tuần: {top_weekly_gainers}
+- Top giảm tuần: {top_weekly_losers}
+- Nhóm ngành dẫn dắt: {leading_sectors}
+
+MÃ NỔI BẬT TRONG TUẦN VÀ NGUYÊN NHÂN:
+{weekly_stock_causes}
+
+Hãy viết bài tổng hợp tuần theo cấu trúc:
+
+## Nhìn lại tuần {week_label}: {one_line_theme}
+
+[ĐOẠN 1 — Tổng quan tuần: 3–4 câu về xu hướng chủ đạo và biến động chỉ số]
+
+[ĐOẠN 2 — Điểm nhấn: 3–4 câu về mã / nhóm ngành tạo ra câu chuyện lớn nhất tuần]
+
+[ĐOẠN 3 — Phân tích nguyên nhân: 2–3 câu về yếu tố vĩ mô / ngành / doanh nghiệp chi phối tuần]
+
+[ĐOẠN 4 — Nhìn về tuần tới: 2 câu về điểm cần theo dõi và kỳ vọng]
+
+Viết bằng tiếng Việt. Phong cách bình luận chuyên nghiệp. Dùng số liệu cụ thể.

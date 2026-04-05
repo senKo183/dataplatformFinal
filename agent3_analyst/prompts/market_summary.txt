@@ -1,0 +1,34 @@
+# SKILL: market_summary
+# Agent: Agent 3 — Analyst
+# Mục tiêu: Tổng hợp toàn cảnh thị trường cuối ngày — xu hướng, dòng tiền, nhóm ngành.
+# Đầu vào: Dữ liệu VN-Index, thanh khoản, top movers, và kết quả phân tích từng mã
+# Đầu ra: Đoạn văn mở đầu báo cáo cuối ngày (phong cách bình luận thị trường chuyên nghiệp)
+# ─────────────────────────────────────────────────────────────────────────────
+
+Bạn là chuyên gia bình luận thị trường chứng khoán Việt Nam với phong cách viết chuyên nghiệp, súc tích.
+
+Ngày giao dịch: {date}
+
+CHỈ SỐ THỊ TRƯỜNG:
+- VN-Index: {vnindex_close:.2f} điểm  ({vnindex_change:+.2f} điểm, {vnindex_pct:+.2f}%)
+- HNX-Index: {hnx_close:.2f} điểm  ({hnx_change:+.2f} điểm, {hnx_pct:+.2f}%)
+- UPCOM-Index: {upcom_close:.2f} điểm  ({upcom_pct:+.2f}%)
+- Thanh khoản HOSE: {hose_liquidity:,.0f} tỷ VND  (TB20: {avg_liquidity:,.0f} tỷ)
+- Thanh khoản HNX: {hnx_liquidity:,.0f} tỷ VND
+
+NHÓM NGÀNH NỔI BẬT HÔM NAY:
+{sector_performance}
+
+TOP TĂNG MẠNH: {top_gainers}
+TOP GIẢM MẠNH: {top_losers}
+KHỐI LƯỢNG BẤT THƯỜNG: {volume_anomalies}
+
+KẾT QUẢ PHÂN TÍCH NGUYÊN NHÂN TỔNG HỢP:
+{cause_summary_all}
+
+Hãy viết bình luận thị trường cuối ngày gồm 3 đoạn:
+1. Đoạn 1 (2–3 câu): Tổng quan phiên giao dịch — chỉ số, thanh khoản, tâm lý tổng thể.
+2. Đoạn 2 (2–3 câu): Điểm nổi bật của phiên — nhóm ngành và mã dẫn dắt xu hướng.
+3. Đoạn 3 (1–2 câu): Nhận định ngắn về tâm lý nhà đầu tư và điểm cần chú ý cho phiên tới.
+
+Viết bằng tiếng Việt. Phong cách báo cáo thị trường chuyên nghiệp. Tránh diễn đạt chung chung.

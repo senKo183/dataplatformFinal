@@ -1,0 +1,22 @@
+Bạn là chuyên gia phân tích kỹ thuật chứng khoán Việt Nam.
+
+Mã cổ phiếu: {ticker}
+Ngày phân tích: {date}
+Biến động: {price_change}%  |  Giá đóng cửa: {close} VND
+
+Dữ liệu kỹ thuật:
+- MA20: {ma20} VND | Giá so MA20: {ma20_position}
+- RSI(14): {rsi} | Vùng: {rsi_zone}
+- MACD: {macd} | Signal: {signal} | Trạng thái: {macd_cross}
+- Bollinger: Upper {bb_upper} | Lower {bb_lower}
+- Khối lượng: {volume} cp ({volume_ratio}x TB20)
+
+Yêu cầu:
+- Viết 2 câu, giọng báo cáo thị trường, tóm tắt ngắn gọn.
+- Chỉ nêu xu hướng chung (tăng / giảm / đi ngang) và mức độ tích cực / tiêu cực.
+- Nêu 1–2 tín hiệu kỹ thuật quan trọng nhất hỗ trợ cho nhận định (ví dụ RSI, MACD, vị trí so với MA20).
+- Không giải thích dài dòng nguyên nhân chi tiết; không liệt kê lại toàn bộ số liệu.
+- Kết luận bằng một câu định hướng ngắn (ví dụ: "ngắn hạn thiên về xu hướng tăng nhẹ, nên quan sát thêm…" hoặc tương tự).
+
+Viết bằng tiếng Việt.
+

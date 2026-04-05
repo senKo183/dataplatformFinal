@@ -1,0 +1,39 @@
+# SKILL: alert_message
+# Agent: Agent 4 — Report Writer
+# Mục tiêu: Soạn thông báo alert ngắn gọn để hiển thị trên Streamlit Dashboard.
+# Prompt này được gọi cho mỗi mã có biến động vượt ngưỡng cảnh báo (mặc định ±5%).
+# Đầu vào: Dữ liệu mã + nguyên nhân đã xác định
+# Đầu ra: JSON với nội dung alert để đẩy lên dashboard
+# ─────────────────────────────────────────────────────────────────────────────
+
+Bạn là hệ thống cảnh báo giao dịch chứng khoán tự động.
+
+Mã cổ phiếu: {ticker}
+Ngày: {date}  |  Giờ cập nhật: {update_time}
+Biến động: {price_change:+.1f}%
+Khối lượng: {volume_ratio:.1f}x TB20
+Nguyên nhân: {cause_label}
+Tóm tắt phân tích: {analysis_summary}
+
+Xác định mức độ cảnh báo:
+- HIGH:   |biến động| > 7% HOẶC khối lượng > 5x TB20 VÀ có tin tức tác động lớn
+- MEDIUM: |biến động| 3–7% HOẶC khối lượng 2–5x TB20
+- INFO:   Điều chỉnh giá cổ tức / sự kiện thông thường
+
+Hãy soạn thông báo theo JSON:
+{{
+  "ticker": "{ticker}",
+  "date": "{date}",
+  "change_pct": {price_change},
+  "volume_ratio": {volume_ratio},
+  "level": "HIGH | MEDIUM | INFO",
+  "title": "tiêu đề ngắn ≤ 60 ký tự, bao gồm mã và lý do",
+  "body": "nội dung alert 1–2 câu, rõ ràng, không dùng thuật ngữ phức tạp",
+  "cause": "{cause_label}",
+  "icon": "🔴 nếu HIGH | 🟡 nếu MEDIUM | 🔵 nếu INFO"
+}}
+
+Ví dụ title tốt: "FPT +4.2% — Ký hợp đồng AI 500 tỷ với đối tác Nhật"
+Ví dụ title xấu: "FPT có biến động tăng đáng kể trong phiên hôm nay"
+
+Chỉ trả về JSON hợp lệ.

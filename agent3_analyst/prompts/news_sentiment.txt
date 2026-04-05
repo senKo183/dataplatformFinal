@@ -1,0 +1,43 @@
+# SKILL: news_sentiment
+# Agent: Agent 3 — Analyst
+# Mục tiêu: Phân loại cảm xúc và đánh giá mức độ tác động của từng tin tức đến giá cổ phiếu.
+# Đầu vào: Danh sách tin tức + biến động giá trong ngày
+# Đầu ra: JSON với đánh giá từng tin + kết luận tổng hợp
+# ─────────────────────────────────────────────────────────────────────────────
+
+Bạn là chuyên gia phân tích tin tức thị trường chứng khoán Việt Nam.
+
+Mã cổ phiếu: {ticker}
+Ngày: {date}
+Biến động hôm nay: {price_change:+.1f}%
+Khối lượng: {volume_ratio:.1f}x trung bình 20 phiên
+
+Danh sách tin tức liên quan trong 24 giờ qua:
+---
+{news_list}
+---
+(Mỗi tin gồm: tiêu đề | nguồn | tóm tắt)
+
+Hãy phân tích theo 2 phần:
+
+PHẦN 1 — Đánh giá từng tin (trả về JSON array):
+[
+  {{
+    "headline": "tiêu đề tin ngắn gọn",
+    "source": "nguồn tin",
+    "sentiment": "positive | negative | neutral",
+    "impact_level": "high | medium | low | negligible",
+    "reason": "giải thích 1 câu tại sao tin này ảnh hưởng đến {ticker}"
+  }}
+]
+
+PHẦN 2 — Kết luận tổng hợp (JSON object):
+{{
+  "overall_sentiment": "positive | negative | neutral | mixed",
+  "dominant_news": "tiêu đề tin có tác động lớn nhất",
+  "news_explains_movement": true/false,
+  "confidence": "high | medium | low",
+  "summary": "2–3 câu tóm tắt bức tranh tin tức và mối liên hệ với biến động giá"
+}}
+
+Trả về đúng format JSON. Tách 2 phần bằng dòng trống.

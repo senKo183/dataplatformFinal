@@ -1,0 +1,24 @@
+Bạn là chuyên gia phân tích kỹ thuật chứng khoán Việt Nam.
+
+Mã cổ phiếu: {ticker}
+Ngày phân tích: {date}
+Biến động: {price_change}%  |  Giá đóng cửa: {close} VND
+
+Dữ liệu kỹ thuật:
+- MA20: {ma20} VND | Giá so MA20: {ma20_position}
+- MA50: {ma50} VND
+- RSI(14): {rsi} | Vùng: {rsi_zone}
+- MACD: {macd} | Signal: {signal} | Trạng thái: {macd_cross}
+- Bollinger: Upper {bb_upper} | Lower {bb_lower}
+- Khối lượng: {volume} cp ({volume_ratio}x TB20)
+
+Yêu cầu (quan trọng: trả lời rõ "vì sao / nguồn cơn" từ góc nhìn kỹ thuật):
+- Viết 5–7 câu, mạch lạc, dễ hiểu cho nhà đầu tư phổ thông.
+- Giải thích theo chuỗi nguyên nhân: từ các tín hiệu kỹ thuật (MA / RSI / MACD / Bollinger / Khối lượng) → hàm ý về lực mua bán → vì sao phản ánh lên giá và động lượng hiện tại.
+- Nêu ít nhất 3 mối liên hệ cụ thể giữa các chỉ báo (ví dụ: MA cho xu hướng nền, RSI cho sức mạnh xu hướng, MACD cho động lượng, Bollinger cho biên độ và độ biến động, Volume xác nhận hay phủ định xu hướng).
+- Nếu các tín hiệu mâu thuẫn (ví dụ RSI tích cực nhưng Volume yếu), hãy chỉ rõ mâu thuẫn đó và cách diễn giải thận trọng.
+- Kết luận bằng 2 kịch bản ngắn hạn: (1) nếu tín hiệu hiện tại tiếp tục duy trì thì khả năng diễn biến giá ra sao; (2) nếu xuất hiện dấu hiệu đảo chiều nào (ví dụ cắt MA20, RSI vào vùng quá mua/quá bán, MACD cắt xuống) thì rủi ro / cơ hội sẽ thay đổi thế nào.
+- Không bịa thêm dữ kiện ngoài các chỉ số đã cung cấp; chỉ suy luận dựa trên dữ liệu kỹ thuật trong prompt.
+
+Viết bằng tiếng Việt.
+

@@ -1,0 +1,74 @@
+version: "3.9"
+
+x-common-volumes: &common-volumes
+  - ./storage:/app/storage
+  - ./config:/app/config
+  - ./reports:/app/reports
+
+services:
+  # ── Apache Airflow ─────────────────────────────────────────────────────────
+  airflow:
+    image: apache/airflow:2.9.0-python3.10
+    ports:
+      - "8081:8080"
+    volumes:
+      - ./airflow/dags:/opt/airflow/dags
+      - ./storage:/opt/airflow/storage
+      - ./reports:/opt/airflow/reports
+      - ./config:/opt/airflow/config
+    environment:
+      - AIRFLOW__CORE__EXECUTOR=LocalExecutor
+      - AIRFLOW__CORE__LOAD_EXAMPLES=False
+      - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=sqlite:////opt/airflow/airflow.db
+      - CLAUDE_API_KEY=${CLAUDE_API_KEY}
+    command: >
+      bash -c "airflow db init &&
+               airflow users create --username admin --password admin
+                 --firstname Admin --lastname User --role Admin --email admin@local &&
+               airflow scheduler &
+               airflow webserver"
+    restart: unless-stopped
+
+  # ── Agent 1: Data Ingestion ────────────────────────────────────────────────
+  agent1:
+    build:
+      context: ./agent1_crawler
+    volumes: *common-volumes
+    profiles: ["run"]    # chỉ chạy khi gọi: docker compose --profile run up agent1
+
+  # ── Agent 2: Financial Reader ──────────────────────────────────────────────
+  agent2:
+    build:
+      context: ./agent2_financial_reader
+    volumes: *common-volumes
+    environment:
+      - CLAUDE_API_KEY=${CLAUDE_API_KEY}
+    profiles: ["run"]
+
+  # ── Agent 3: Analyst ──────────────────────────────────────────────────────
+  agent3:
+    build:
+      context: ./agent3_analyst
+    volumes: *common-volumes
+    environment:
+      - CLAUDE_API_KEY=${CLAUDE_API_KEY}
+    profiles: ["run"]
+
+  # ── Agent 4: Reporter ─────────────────────────────────────────────────────
+  agent4:
+    build:
+      context: ./agent4_reporter
+    volumes: *common-volumes
+    environment:
+      - CLAUDE_API_KEY=${CLAUDE_API_KEY}
+    profiles: ["run"]
+
+  # ── Streamlit Dashboard ────────────────────────────────────────────────────
+  dashboard:
+    build:
+      context: ./dashboard
+    ports:
+      - "8501:8501"
+    volumes: *common-volumes
+    command: streamlit run app.py --server.port=8501 --server.address=0.0.0.0 --server.headless=true
+    restart: unless-stopped
